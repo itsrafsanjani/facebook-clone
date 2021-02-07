@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\User as UserResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class Post extends JsonResource
 {
@@ -21,11 +21,13 @@ class Post extends JsonResource
                 'post_id' => $this->id,
                 'attributes' => [
                     'posted_by' => new UserResource($this->user),
-                    'body' => $this->body
+                    'body' => $this->body,
+                    'image' => $this->image,
+                    'posted_at' => $this->created_at->diffForHumans()
                 ]
             ],
             'links' => [
-                'self' => url('/posts/' . $this->id)
+                'self' => url('/posts/'.$this->id)
             ]
         ];
     }

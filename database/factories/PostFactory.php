@@ -24,7 +24,8 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'body' => $this->faker->sentence
+            'body' => $this->faker->sentence,
+            'image' => 'http://via.placeholder.com/300',
         ];
     }
 }

@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center py-4">
         <NewPost />
 
-        <Post v-for="post in posts.data" :post="post"/>
+        <Post v-for="post in posts.data" :key="post.data.post_id" :post="post"/>
     </div>
 </template>
 
